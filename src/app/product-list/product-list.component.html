@@ -1,3 +1,46 @@
+<div class="container">
+  <div class="row mx-auto">
+    <div class="col-4 p-3" *ngFor="let product of products">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]" class="card-title">{{ product.name }}</a>
+          <p *ngIf="product.description" class="card-text">{{ product.description }}</p>
+          <button (click)="share()" class="btn btn-primary">Share</button>
+          <app-product-alerts
+          [product]="product"
+          (notify)="onNotify()"
+        ></app-product-alerts>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
 <h2>Products</h2>
 <div *ngFor="let product of products">
   <h3>
@@ -22,8 +65,8 @@
     (notify)="onNotify()"
   ></app-product-alerts>
 </div>
-
-<!-- 
+-->
+<!--
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at https://angular.io/license

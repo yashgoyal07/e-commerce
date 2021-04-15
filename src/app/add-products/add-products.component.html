@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row mx-auto">
+        <form class="mx-auto" [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+                <legend></legend>
+                <br>
+                <div class="col-4">
+                <label for="inputName4" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="inputName4" size="100"  formControlName="name">
+                </div>
+
+                <div class="col-4">
+                    <label for="inputPrice" class="form-label">Price:</label>
+                    <input type="number" class="form-control" id="inputPrice"  formControlName="price">
+                    </div>
+
+                <div class="col-4">
+                <label for="inputDescription4" class="form-label">Description:</label>
+                <textarea type="text" class="form-control" id="inputDescription4" size="100"  formControlName="description"></textarea>
+                </div>
+                <br>
+                <div class="col-4">
+                <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </fieldset>
+          </form>
+    </div>
+</div>

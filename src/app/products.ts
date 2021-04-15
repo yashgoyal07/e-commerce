@@ -1,4 +1,4 @@
-export const products = [
+var products = [
   {
     id: 1,
     name: 'Phone XL',
@@ -16,10 +16,44 @@ export const products = [
     name: 'Phone Standard',
     price: 299,
     description: ''
+  },
+  {
+    id: 1,
+    name: 'Phone XL',
+    price: 799,
+    description: 'A large phone with one of the best screens'
+  },
+  {
+    id: 1,
+    name: 'Phone XL',
+    price: 799,
+    description: 'A large phone with one of the best screens'
+  },
+  {
+    id: 1,
+    name: 'Phone XL',
+    price: 799,
+    description: 'A large phone with one of the best screens'
+  },
+  {
+    id: 1,
+    name: 'Phone XL',
+    price: 799,
+    description: 'A large phone with one of the best screens'
+  },
+  {
+    id: 1,
+    name: 'Phone XL',
+    price: 799,
+    description: 'A large phone with one of the best screens'
   }
 ];
 
+function addProduct(value: { id: number; name: string; price: number; description: string; }) {
+  products.push(value);
+}
 
+export { products, addProduct };
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
