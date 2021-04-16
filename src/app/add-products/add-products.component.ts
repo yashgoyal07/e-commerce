@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { products, addProduct } from '../products'
 import { FormBuilder } from '@angular/forms';
+import { ProductsService } from '../products.service'
 
 @Component({
   selector: 'app-add-products',
@@ -9,20 +10,26 @@ import { FormBuilder } from '@angular/forms';
 })
 export class AddProductsComponent implements OnInit {
   addProductForm = this.formBuilder.group({
-    id: '',
-    name: '',
-    price: '',
-    description: ''
-  });
-  constructor(private formBuilder: FormBuilder,) { }
+    name: "",
+    description: "",
+    price: "",
+    category: "",
+    ratings: "",
+    units:"",
+    reviews: "",
+    img_path: ""
+    });
+  constructor(private formBuilder: FormBuilder, private productData:ProductsService) { }
 
   ngOnInit(): void {
+
   }
 
   onSubmit(): void {
-    this.addProductForm.value.id = products.length + 1;
-    addProduct(this.addProductForm.value);
-    console.warn('Product successfully added.', this.addProductForm.value);
-    this.addProductForm.reset();
+    this.productData.addProducts(this.addProductForm.value).subscribe((result)=>{
+      window.alert('Product added successfully');
+      console.warn('Product successfully added.', this.addProductForm.value);
+      this.addProductForm.reset();
+    })
   }
 }

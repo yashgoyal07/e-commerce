@@ -8,11 +8,19 @@ import { FormBuilder } from "@angular/forms";
   styleUrls: ["./cart.component.css"]
 })
 export class CartComponent implements OnInit {
+  totalPrice: number;
   items = this.cartService.getItems();
   checkoutForm = this.formBuilder.group({
     name: "",
     address: ""
   });
+
+  clearCart() {
+    this.cartService.clearCart();
+    window.alert("Cart has been emptied!");
+    location.reload();
+  }
+
   constructor(
     private cartService: CartService,
     private formBuilder: FormBuilder
@@ -20,9 +28,12 @@ export class CartComponent implements OnInit {
 
   onSubmit(): void {
     this.items = this.cartService.clearCart();
+    window.alert("Thanks for purchasing!")
     console.warn("Your order has been submitted", this.checkoutForm.value);
     this.checkoutForm.reset();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.totalPrice = this.cartService.getTotal();
+  }
 }

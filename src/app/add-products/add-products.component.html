@@ -1,27 +1,55 @@
+<br>
+<h3 style="text-align:center;">Add Product</h3>
+<br>
 <div class="container">
     <div class="row mx-auto">
         <form class="mx-auto" [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
             <fieldset>
-                <legend></legend>
-                <br>
-                <div class="col-4">
+                <br>    
+                <div class="col-12">
                 <label for="inputName4" class="form-label">Name:</label>
-                <input type="text" class="form-control" id="inputName4" size="100"  formControlName="name">
+                <input type="text" class="form-control" id="inputName4" size="100" formControlName="name">
                 </div>
 
-                <div class="col-4">
+                <div class="col-12">
+                    <label for="inputDescription4" class="form-label">Description:</label>
+                    <textarea type="text" class="form-control" id="inputDescription4" formControlName="description"></textarea>
+                </div>
+
+                <div class="col-12">
                     <label for="inputPrice" class="form-label">Price:</label>
                     <input type="number" class="form-control" id="inputPrice"  formControlName="price">
-                    </div>
+                </div>
 
-                <div class="col-4">
-                <label for="inputDescription4" class="form-label">Description:</label>
-                <textarea type="text" class="form-control" id="inputDescription4" size="100"  formControlName="description"></textarea>
+                <div class="col-12">
+                    <label for="inputCategory" class="form-label">Category:</label>
+                    <input type="text" class="form-control" id="inputCategory"  formControlName="category">
+                </div>
+
+                <div class="col-12">
+                    <label for="inputRatings" class="form-label">Ratings:</label>
+                    <input type="number" class="form-control" id="inputRatings"  formControlName="ratings">
+                </div>
+
+                <div class="col-12">
+                    <label for="inputUnits" class="form-label">SKU:</label>
+                    <input type="number" class="form-control" id="inputUnits"  formControlName="units">
+                </div>
+
+                <div class="col-12">
+                    <label for="inputReviews" class="form-label">Reviews:</label>
+                    <input type="number" class="form-control" id="inputReviews"  formControlName="reviews">
+                </div>
+
+                <div class="col-12">
+                    <label for="inputImg_path" class="form-label">Image Path:</label>
+                    <input type="url" class="form-control" id="inputImg_path"  formControlName="img_path">
                 </div>
                 <br>
-                <div class="col-4">
-                <button type="submit" class="btn btn-primary">Add</button>
+                <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-block">Add</button>
                 </div>
+                <br>
             </fieldset>
           </form>
     </div>

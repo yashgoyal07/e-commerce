@@ -1,7 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { products } from "../products";
+import { ProductsService } from '../products.service'
 import { CartService } from "../cart.service";
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: "app-product-details",
@@ -9,22 +10,27 @@ import { CartService } from "../cart.service";
   styleUrls: ["./product-details.component.css"]
 })
 export class ProductDetailsComponent implements OnInit {
-  product;
+  product: Object;
 
-  addToCart(product) {
+  addToCart(product: any) {
+    this.cookie.set("cart", JSON.stringify([]));
     this.cartService.addToCart(product);
     window.alert("Your product has been added to the cart!");
   }
 
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private productData: ProductsService,
+    private cookie: CookieService
   ) {}
 
   ngOnInit() {
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get("productId"));
-
-    this.product = products.find(product => product.id === productIdFromRoute);
+    this.productData.getProducts_id(productIdFromRoute).subscribe((result)=>{
+      console.warn(result);
+      this.product = result[0];
+    })
   }
 }

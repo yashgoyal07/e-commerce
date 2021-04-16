@@ -13,6 +13,7 @@ import { CartService } from "./cart.service";
 import { CartComponent } from "./cart/cart.component";
 import { ShippingComponent } from './shipping/shipping.component';
 import { AddProductsComponent } from './add-products/add-products.component';
+import { CookieService } from "ngx-cookie-service";
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ import { AddProductsComponent } from './add-products/add-products.component';
       { path: "products/:productId", component: ProductDetailsComponent },
       { path: "cart", component: CartComponent },
       { path: "shipping", component: ShippingComponent },
-      { path: "add-products", component: AddProductsComponent }
+      { path: "add-products", component: AddProductsComponent } 
     ])
   ],
   declarations: [
@@ -38,7 +39,7 @@ import { AddProductsComponent } from './add-products/add-products.component';
     AddProductsComponent
   ],
   bootstrap: [AppComponent],
-  providers: [CartService]
+  providers: [CartService, CookieService]
 })
 export class AppModule {}
 
