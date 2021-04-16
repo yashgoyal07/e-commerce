@@ -21,10 +21,15 @@
                     <input type="number" class="form-control" id="inputPrice"  formControlName="price">
                 </div>
 
-                <div class="col-12">
-                    <label for="inputCategory" class="form-label">Category:</label>
-                    <input type="text" class="form-control" id="inputCategory"  formControlName="category">
-                </div>
+                <div class="col-12 form-group">
+                    <label for="inputCategory">Category:</label>
+                    <select class="form-control" id="inputCategory" formControlName="category">
+                      <option value="all" selected>All</option>
+                      <option value="mobile">Mobile</option>
+                      <option value="laptop">Laptop</option>
+                      <option value="watch">Watches</option>
+                    </select>
+                  </div>
 
                 <div class="col-12">
                     <label for="inputRatings" class="form-label">Ratings:</label>

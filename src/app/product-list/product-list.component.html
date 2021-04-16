@@ -1,76 +1,41 @@
 <br>
 <h3 style="text-align:center;">Products</h3>
 <br>
-<div class="container">
-  <div class="row mx-auto">
-    <div class="col-4 p-3" *ngFor="let product of products">
-      <div class="card" style="width: 18rem;">
-        <img src="{{ product.img_path }}" class="card-img-top" alt="{{ product.name }}" width="300" height="300">
-        <div class="card-body">
-          <h3 class="card-title">{{ product.name }}</h3>
-          <hr/>
-          <p *ngIf="product.description" class="card-text">{{ product.description }}</p>
-          <p><b>Price:</b> ₹ {{ product.price }}</p>
-          <p><b>SKU:</b> {{ product.units }}</p>
-          <p><b>Ratings:</b> {{ product.ratings }}</p>
-          <button [title]="product.name + ' details'" [routerLink]="['/products', product.id]"  class="btn btn-primary">Show More</button>
+
+<form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+  <div class="form-row align-items-center">
+    <div class="col-auto my-1">
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="category">
+        <option value="all">All</option>
+        <option value="mobile">Mobile</option>
+        <option value="laptop">Laptops</option>
+        <option value="watch">Watches</option>
+      </select>
+    </div>
+    <div class="col-auto my-1">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+
+<div *ngIf="products">
+  <div class="container">
+    <div class="row mx-auto">
+      <div class="col-4 p-3" *ngFor="let product of products">
+        <div class="card" style="width: 18rem;">
+          <img src="{{ product.img_path }}" class="card-img-top" alt="{{ product.name }}" width="300" height="300">
+          <div class="card-body">
+            <h3 class="card-title">{{ product.name }}</h3>
+            <hr/>
+            <p *ngIf="product.description" class="card-text">{{ product.description }}</p>
+            <p><b>Price:</b> ₹ {{ product.price }}</p>
+            <p><b>SKU:</b> {{ product.units }}</p>
+            <p><b>Ratings:</b> {{ product.ratings }}</p>
+            <button [title]="product.name + ' details'" [routerLink]="['/products', product.id]"  class="btn btn-primary">Show More</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-
-<h2>Products</h2>
-<div *ngFor="let product of products">
-  <h3>
-    <a
-      [title]="product.name + ' details'"
-      [routerLink]="['/products', product.id]"
-    >
-      {{ product.name }}
-    </a>
-  </h3>
-
-  <p *ngIf="product.description">
-    Description: {{ product.description }}
-  </p>
-
-  <button (click)="share()">
-    Share
-  </button>
-
-  <app-product-alerts
-    [product]="product"
-    (notify)="onNotify()"
-  ></app-product-alerts>
-</div>
--->
-<!--
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
--->
