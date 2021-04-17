@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http'
   providedIn: 'root'
 })
 export class ProductsService {
-  url = "http://127.0.0.1:5000/product"
+  url = "http://54.92.188.1:5000/product"
   constructor(private http: HttpClient) { }
   getProducts_category(category: string)
   {
